@@ -1,0 +1,68 @@
+connect8Pass1 (zeroFramedAry, newLabel, EQAry) 
+step0 : image by giveb an binary image
+        newlabel equal 0
+        eqtable by equialency table
+step1: scan the image left to right , top to bottom
+p(i,j) equal nexy pixel
+step 2 if p(i,j)bigger then 0 , lokk at abcd
+ case 1 : a=b=c=d 
+new label ++
+p(i,j) equal newlable 
+case 2 : abcd has labe ; p(i,j)equal some label 
+case 3 :abcd have different label 
+p(i,j) equal min lable =min(a,b,c,d)
+step3 : if case 1,3 upate the equialencytable
+step4 repeat 1to 3 until picel are process
+
+connect8pass 2 (zeroFramedAry, newLabel, EQAry) 
+step 0:scan the result of pass 1 , right to left , bottom to top, p(i,j)equal next pixel
+step2: if p(i,j)>0 look at p(i,j)efgh
+case 1: e=f=g=h=0
+do nothing p(i,j)keep label
+case 2: e=f=g=h = p(i,j)
+do nothing p(i,j)keep label
+case 3 at lease 2 dfiferent label 
+ifp(i,j)> minlabel;
+EQTable {p(i,j)} equal min label
+p(i,j)= new label
+step3: use the equivalency table to update p(i,j) was not updated in step3
+
+connect4Pass1(zeroFramedAry, newLabel, EQAry)
+step0 : image by giveb an binary image
+        newlabel equal 0
+        eqtable by equialency table
+step1: scan the image left to right , top to bottom
+p(i,j) equal nexy pixel
+step 2 if p(i,j)bigger then 0 , look at abcd
+ case 1 : a=b
+new label ++
+p(i,j) equal newlable 
+case 2 : ab has labe ; p(i,j)equal some label 
+case 3 :ab have different label 
+p(i,j) equal min lable =min(a,b)
+step3 : if case 1,3 upate the equialencytable
+step4 repeat 1to 3 until picel are process
+
+connect4pass 2(zeroFramedAry, newLabel, EQAry)
+step 0:scan the result of pass 1 , right to left , bottom to top, p(i,j)equal next pixel
+step2: if p(i,j)>0 look at p(i,j)cd
+case 1: e=f=g=h=0
+do nothing p(i,j)keep label
+case 2: c=d = p(i,j)
+do nothing p(i,j)keep label
+case 3 at lease 2 dfiferent label 
+if p(i,j)> minlabel;
+EQTable {p(i,j)} equal min label
+p(i,j)= new label
+step3: use the equivalency table to update p(i,j) was not updated in step3
+
+Equivanlency table management
+step0 : readLabel =0
+step1: index =1
+step2: if index is not equal EQ[index]
+		EQ[index] equal EQ[EQ[index]]
+	else
+	read lable ++
+	EQ[index] equal readlabel
+step3 index++
+step4 re[eat step2 to 3 until index>nexlabel
